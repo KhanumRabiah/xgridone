@@ -21,8 +21,12 @@ following the steps below:
 1. Log in to your X-Pulse account.
 
 2. Click on **Reviews** button from left pane.
+   | |image1|
+.. .. image::  D:\\xgridinternship\\xgridone\\media\\image1_1.png
 
-.. image::  D:\\xgridinternship\\xgridone\\media\\image1_1.png
+.. |image1| image:: media/image1.png
+   :width: 6.5in
+   :height: 3.66667in
 
 3. Click on the **Performance Review** available for the current quarter.
 
