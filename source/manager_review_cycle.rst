@@ -133,7 +133,7 @@ The Review Request feature enables the managers to request a review for one or m
 7. | Select an Employee that you’d like to request review from.
    | |image15|
 
-Once you have requested a review of one or more of your team members, you can check its status by navigating to your team member(s) profile from the right pane.
+Once you have requested a review of one or more of your team-members, you can check its status by navigating to your team member(s) profile from the right pane.
 
 .. |image1| image:: media/image1.png
    :width: 6.5in
