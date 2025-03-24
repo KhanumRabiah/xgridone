@@ -7,9 +7,9 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'xgridone'
-copyright = '2024, RabiahK'
-author = 'RabiahK'
-release = '1.0'
+copyright = '2025, Rabiah Khanum'
+author = 'Rabiah Khanum'
+release = 'infinity'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -19,12 +19,12 @@ extensions = []
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-root_doc = 'root'
+root_doc = 'index'
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'classic'
+html_theme = 'sphinx-rtd-theme'
 html_theme_options = {
     "bodyfont": "Times New Roman",
     "headfont": "Times New Roman",
