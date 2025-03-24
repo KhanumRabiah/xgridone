@@ -9,15 +9,13 @@ jobs:
 
   build_docs_job:
     runs-on: ubuntu-latest
-    env:
-      GITHUB PAT: ${{ secrets.GITHUB_KEN }}
     
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v2.2.1 
+        uses: actions/setup-python@v4
         with:
           python-version: 3.9
       
@@ -41,9 +39,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git commit -m 'deploy'
 
-      - name: Debug directory permissions
-        run: ls -lah /github/workspace/docs/build/html
-      
+
       - name: Force push to destination branch
         uses: ad-m/github-push-action@v0.5.0
         with:
