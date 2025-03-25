@@ -9,6 +9,8 @@ jobs:
 
   build_docs_job:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     
     steps:
       - name: Checkout
@@ -39,15 +41,6 @@ jobs:
           git config --local user.name "GitHub Action"
           git commit -m 'deploy'
 
-      - name: Verify .nojekyll
-        run: ls -lah docs/build/html/
-
-      - name: Mark repo as safe
-        run: git config --global --add safe.directory /github/workspace/docs/build/html
-
-      - name: Debug Safe Directory
-        run: git config --list --global | grep safe.directory
-
       - name: Force push to destination branch
         uses: ad-m/github-push-action@v0.5.0
         with:
@@ -55,4 +48,3 @@ jobs:
           branch: gh-pages
           force: true
           directory: /github/workspace/docs/build/html
-
