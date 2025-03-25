@@ -47,5 +47,5 @@ jobs:
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: /github/workspace/docs/build/html
+          publish_dir: /docs/build/html
           force_orphan: true
