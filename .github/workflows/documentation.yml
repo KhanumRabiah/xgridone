@@ -43,7 +43,7 @@ jobs:
         run: ls -lah docs/build/html/
 
       - name: Mark repo as safe
-        run: sudo git config --system --add safe.directory /github/workspace/docs/build/html
+        run: git config --global --add safe.directory /github/workspace/docs/build/html
 
       - name: Debug Safe Directory
         run: git config --list --global | grep safe.directory
@@ -54,5 +54,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }} 
           branch: gh-pages
           force: true
-          directory: ./docs/build/html
+          directory: /github/workspace/docs/build/html
 
