@@ -35,7 +35,8 @@ jobs:
         run: |
           cd docs/build/html/
           git init
-          touch .nojekyll
+          touch .nojekyll                    
+          git checkout -b gh-pages || git checkout gh-pages
           git add -A
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
