@@ -44,9 +44,12 @@ jobs:
 
       - name: Manually push to GitHub
         run: |
-         cd docs/build/html/
-         git branch -M gh-pages
-         git remote add -f https://github.com/KhanumRabiah/xgridone.git
-         git push --force origin gh-pages
-
+          cd docs/build/html/
+          git init  # Ensure git is initialized
+          git branch -M gh-pages
+          git remote remove origin || true  # Remove existing remote if any
+          git remote add origin https://github.com/KhanumRabiah/xgridone.git
+          git add .
+          git commit -m "Deploy Sphinx docs"
+          git push --force origin gh-pages
 
