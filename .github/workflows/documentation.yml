@@ -41,7 +41,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m 'deploy'
-          git push --force "https://${{ secrets.GITHUB_TOKEN }}@github.com/KhanumRabiah/xgridone.git" gh-pages
+          git push --force "https://github.com/KhanumRabiah/xgridone" gh-pages
 
 #      - name: Deploy to GitHub Pages
 #        uses: peaceiris/actions-gh-pages@v3
