@@ -27,19 +27,7 @@ jobs:
 
       - name: Build Sphinx Docs
         run: |
-          sphinx-build -b html docs/ docs/build/html
-
-      - name: Init new repo in build folder and commit generated files
-        run: |
-          cd docs/build/html/
-          git init
-          touch .nojekyll
-          git add -A
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git checkout -B gh-pages
-          git commit -m 'deploy'
-          git branch -M gh-pages  # Ensure we are using the correct branch
+          sphinx-build -b html docs/ docs/build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -47,5 +35,5 @@ jobs:
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: docs/build/
           force_orphan: true
