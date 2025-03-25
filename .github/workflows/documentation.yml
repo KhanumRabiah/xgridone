@@ -37,6 +37,7 @@ jobs:
           git add -A
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git checkout -B gh-pages
           git commit -m 'deploy'
           git branch -M gh-pages  # Ensure we are using the correct branch
 
@@ -46,5 +47,5 @@ jobs:
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/build/html
+          publish_dir: ./
           force_orphan: true
