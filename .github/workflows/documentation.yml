@@ -1,6 +1,5 @@
 name: "Docs Pages Workflow"
 
-#execute this workflow automatically when we push to master
 on: 
   push:
     branches: [main]
@@ -26,28 +25,26 @@ jobs:
           python -m pip install -U sphinx
           python -m pip install sphinx-rtd-theme
 
-      - name: make the sphinx docs
+      - name: Build Sphinx Docs
         run: |
           sphinx-build -b html docs/ docs/build/html
-
 
       - name: Init new repo in build folder and commit generated files
         run: |
           cd docs/build/html/
           git init
-          touch .nojekyll                    
-          git checkout -b gh-pages || git checkout gh-pages
+          touch .nojekyll
           git add -A
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m 'deploy'
-          git push --force "https://github.com/KhanumRabiah/xgridone.git" gh-pages
+          git branch -M gh-pages  # Ensure we are using the correct branch
 
-#      - name: Deploy to GitHub Pages
-#        uses: peaceiris/actions-gh-pages@v3
-#        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-#        with:
-#          publish_branch: gh-pages
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
-#          publish_dir: /docs/build/html
-#          force_orphan: true
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        with:
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/build/html
+          force_orphan: true
