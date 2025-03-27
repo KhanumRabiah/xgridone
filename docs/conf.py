@@ -24,6 +24,15 @@ root_doc = 'index'
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-import sphinx_rtd_theme
+#import sphinx_rtd_theme
 
-html_theme = "sphinx_rtd_theme"
+#html_theme = "sphinx_rtd_theme"
+html_theme = 'alkira_theme'
+html_static_path = ['_static']
+html_theme_path = ['themes/']
+
+html_logo = 'images/logo.png'
+html_theme_options = {
+    'logo_only': True,
+    'display_version': False,
+}
